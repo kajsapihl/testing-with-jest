@@ -21,6 +21,14 @@ afterAll(async() => {
 test('The stack should be empty in the beginning', async () => {
 	let stack = await driver.findElement(By.id('top_of_stack')).getText();
 	expect(stack).toEqual("n/a");
+
+});
+
+test('Should print the value that is pushed to the stack', async () => {
+	let stack = await driver.findElement(By.id('top_of_stack')).getText();
+  let push = await driver.findElement(By.id('push'));
+  push.click();
+  expect(stack).toEqual("Bananer");
 });
 
 describe('Clicking "Pusha till stacken"', () => {
