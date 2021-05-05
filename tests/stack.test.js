@@ -18,8 +18,10 @@ test('peek on stack with two or more elements returns the top element', () => {
     expect(stack.peek()).toBe(42);
 });
 
-test('pop on empty stack returns undefined', () => {
-  expect(stack.pop()).toBeUndefined();
+test('pop on stack with two or more elements returns and deletes the top element', () => {
+  expect(stack.pop()).toBeDefined();
+  expect(stack.pop()).toBe("wow");
+  expect(stack.peek()).toBe(1);
 });
 
 test('pop on stack with one element returns and deletes that element', () => {
@@ -28,8 +30,6 @@ test('pop on stack with one element returns and deletes that element', () => {
   expect(stack.peek()).toBeUndefined();
 });
 
-test('pop on stack with two or more elements returns and deletes the top element', () => {
-  expect(stack.pop()).toBeDefined();
-  expect(stack.pop()).toBe("wow");
-  expect(stack.peek()).toBe(1);
+test('pop on empty stack returns undefined', () => {
+  expect(stack.pop()).toBeUndefined();
 });
